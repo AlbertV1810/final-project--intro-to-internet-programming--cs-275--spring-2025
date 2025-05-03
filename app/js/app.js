@@ -15,7 +15,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
   const createDiamond = (size) => {
     const container = document.getElementById(`diamond-container`);
-    container.innerHTML = ``; // Clear previous diamond
+    container.innerHTML = ``;
 
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
@@ -27,7 +27,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
       row.classList.add(`diamond-row`);
 
       const spaces = Math.abs(Math.floor(size / 2) - i);
-      const stars = size - spaces * 2; // Ensure `stars` is properly defined here
+      const stars = size - spaces * 2;
 
       row.textContent = `${` `.repeat(spaces)}${`*`.repeat(stars)}`;
       diamondWrapper.appendChild(row);
