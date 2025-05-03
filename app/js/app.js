@@ -15,15 +15,9 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
   const createDiamond = (size) => {
     const container = document.getElementById(`diamond-container`);
-    container.innerHTML = ``; // Clear previous diamond
-
+    container.innerHTML = ``;
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
-
-    // If even, make it odd
-    if (size % 2 === 0) {
-        size++;
-    }
 
     for (let i = 0; i < size; i++) {
         const row = document.createElement(`div`);
