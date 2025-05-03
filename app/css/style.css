@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 #diamond-container {
@@ -23,7 +23,7 @@ body {
 
 .diamond-row {
  font-size: 20px;
- color: white;
+ color: rgb(0, 0, 0);
  font-family: monospace;
  white-space: pre;
 }
