@@ -20,35 +20,12 @@ document.addEventListener(`DOMContentLoaded`, () => {
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
 
-    console.log(`Generating rows for size: ${size}`);
-
-    for (let i = 0; i < size; i++) {
-      const row = document.createElement(`div`);
-      row.classList.add(`diamond-row`);
-
-      const spaces = Math.abs(Math.floor(size / 2) - i);
-      const stars = size - spaces * 2;
-
-      row.textContent = `${` `.repeat(spaces)}${`*`.repeat(stars)}`;
-      diamondWrapper.appendChild(row);
-    }
-
-    container.appendChild(diamondWrapper);
-  };
-
-  /*const createDiamond = (size) => {
-    const container = document.getElementById(`diamond-container`);
-    container.innerHTML = ``;
-
-    const diamondWrapper = document.createElement(`div`);
-    diamondWrapper.classList.add(`diamond-wrapper`);
-
     for(let i = 0; i < size; i++) {
         const row = document.createElement(`div`);
         row.classList.add(`diamond-row`);
 
         const spaces = Math.abs(Math.floor(size / 2) - 1);
-        const starts = size - spaces * 2;
+        const stars = size - spaces * 2;
 
         row.innerHTML = `${` `.repeat(spaces)}${`*`.repeat(stars)}`;
         diamondWrapper.appendChild(row);
