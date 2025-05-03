@@ -14,6 +14,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
   });
 
   const createDiamond = (size) => {
+    console.log(`createDiamond is running with size: ${size}`);
+
     const container = document.getElementById(`diamond-container`);
     container.innerHTML = ``;
 
