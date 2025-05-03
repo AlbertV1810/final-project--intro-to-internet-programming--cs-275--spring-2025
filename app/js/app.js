@@ -14,6 +14,32 @@ document.addEventListener(`DOMContentLoaded`, () => {
   });
 
   const createDiamond = (size) => {
+    const container = document.getElementById(`diamond-container`);
+    container.innerHTML = ``; // Clear previous diamond
+
+    const diamondWrapper = document.createElement(`div`);
+    diamondWrapper.classList.add(`diamond-wrapper`);
+
+    // If even, make it odd
+    if (size % 2 === 0) {
+        size++;
+    }
+
+    for (let i = 0; i < size; i++) {
+        const row = document.createElement(`div`);
+        row.classList.add(`diamond-row`);
+
+        const spaces = Math.abs(Math.floor(size / 2) - i);
+        const stars = size - 2 * spaces;
+
+        row.textContent = `${" ".repeat(spaces)}${"*".repeat(stars)}`;
+        diamondWrapper.appendChild(row);
+    }
+
+    container.appendChild(diamondWrapper);
+};
+
+  /*const createDiamond = (size) => {
     console.log(`createDiamond is running with size: ${size}`);
 
     const container = document.getElementById(`diamond-container`);
