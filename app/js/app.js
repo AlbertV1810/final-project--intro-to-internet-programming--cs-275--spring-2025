@@ -32,4 +32,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         row.innerHTML = `${` `.repeat(spaces)}${`*`.repeat(stars)}`;
         diamondWrapper.appendChild(row);
     }
+
+    container.appendChild(diamondWrapper);
+    console.log(`Wrapper apended well`);
   }
