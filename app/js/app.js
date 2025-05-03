@@ -26,7 +26,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         const row = document.createElement(`div`);
         row.classList.add(`diamond-row`);
 
-        const spaces = Math.abs(Math.floor(size / 2) - 1);
+        const spaces = Math.abs(Math.floor(size / 2) - i);
         const stars = size - spaces * 2;
 
         row.innerHTML = `${` `.repeat(spaces)}${`*`.repeat(stars)}`;
