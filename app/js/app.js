@@ -28,6 +28,9 @@ document.addEventListener(`DOMContentLoaded`, () => {
             const row = document.createElement(`div`);
             row.classList.add(`diamond-row`);
 
+            let spaces = Math.abs(Math.floor(size / 2) - i);
+            let stars = size - spaces * 2;
+
             if (i === 0 || i === size - 1) {
                 stars = 1;
             }
@@ -35,8 +38,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
                 stars += 1;
             }
 
-            let spaces = Math.abs(Math.floor(size / 2) - i);
-            let stars = size - spaces * 2;
             row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
             diamondWrapper.appendChild(row);
         }
