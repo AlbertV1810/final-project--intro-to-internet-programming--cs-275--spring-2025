@@ -14,7 +14,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   });
 
   const createDiamond = (size) => {
-    console.log(`createDiamond is running with size: ${size}`);
+    console.log(`createDiamond is running with size: ${size}`); //delete after
 
     const container = document.getElementById(`diamond-container`);
     container.innerHTML = ``;
@@ -22,16 +22,24 @@ document.addEventListener(`DOMContentLoaded`, () => {
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
 
+    const isEven = size % 2 === 0;
+    if (isEven) size++;
+
     for(let i = 0; i < size; i++) {
         const row = document.createElement(`div`);
         row.classList.add(`diamond-row`);
 
         const spaces = Math.abs(Math.floor(size / 2) - i);
         const stars = size - spaces * 2;
+
+        if (isEven && (i === 0 || i === size - 1)) {
+            stars += 1;
+        }
+
         row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
         diamondWrapper.appendChild(row);
     }
 
     container.appendChild(diamondWrapper);
-    console.log(`Wrapper apended well`);
+    console.log(`Wrapper apended well`); //delete after
   }
