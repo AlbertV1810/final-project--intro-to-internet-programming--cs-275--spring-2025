@@ -22,25 +22,12 @@ document.addEventListener(`DOMContentLoaded`, () => {
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
 
-    const isEven = size % 2 === 0;
-    if (isEven) size++;
-
     for(let i = 0; i < size; i++) {
         const row = document.createElement(`div`);
         row.classList.add(`diamond-row`);
 
         let spaces = Math.abs(Math.floor(size / 2) - i);
         let stars = size - spaces * 2;
-
-        if (isEven) {
-            if (i === 0 || i === size - 1) {
-                stars += 1;
-            }
-            if (size % 2 === 0 && i === Math.floor(size / 2)) {
-                stars += 1;
-            }
-        }
-
         row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
         diamondWrapper.appendChild(row);
     }
