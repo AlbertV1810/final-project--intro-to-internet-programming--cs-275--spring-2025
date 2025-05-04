@@ -25,6 +25,6 @@ body {
 
 .diamond-row {
  font-size: 16px;
-
+ font-family: 'Space Mono', monospace;
  white-space: pre;
 }
