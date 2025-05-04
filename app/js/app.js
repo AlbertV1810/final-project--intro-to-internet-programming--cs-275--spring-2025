@@ -20,14 +20,14 @@ document.addEventListener(`DOMContentLoaded`, () => {
     container.innerHTML = ``;
     const isEven = size % 2 === 0;
 
-    const row = document.createElement(`div`);
-    row.classList.add(`diamond-row`);
-
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
 
     if (isEven) {
         for(let i = 0; i < size; i++) {
+            const row = document.createElement(`div`);
+            row.classList.add(`diamond-row`);
+
             let spaces = Math.abs(size / 2 - 1) - 1;
             let stars = size - (spaces * 2);
 
@@ -44,6 +44,9 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     if (!isEven) {
         for(let i = 0; i < size; i++) {
+            const row = document.createElement(`div`);
+            row.classList.add(`diamond-row`);
+
             let spaces = Math.abs(Math.floor(size / 2) - i);
             let stars = size - spaces * 2;
             row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
