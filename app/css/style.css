@@ -21,8 +21,10 @@ body {
   align-items: center;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
 .diamond-row {
  font-size: 20px;
- font-family: 'Courier New', Courier, monospace;
+ font-family: 'Space Mono', monospace;
  white-space: pre;
 }
