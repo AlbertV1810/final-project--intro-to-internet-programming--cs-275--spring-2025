@@ -27,4 +27,5 @@ body {
  font-size: 16px;
  font-family: 'Space Mono', monospace;
  white-space: pre;
+ letter-spacing: 0px;
 }
