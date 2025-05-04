@@ -24,15 +24,21 @@ document.addEventListener(`DOMContentLoaded`, () => {
     diamondWrapper.classList.add(`diamond-wrapper`);
 
     if (isEven) {
-        for(let i = 0; i < size; i++) {
+        for (let i = 0; i < size; i++) {
             const row = document.createElement(`div`);
             row.classList.add(`diamond-row`);
 
-            let spaces = Math.abs(Math.floor(size / 2) - i);
-            let stars = size - spaces * 2;
-            row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
+            let spaces = Math.abs(size / 2 - i) - 1;
+            let stars = 2 * Math.abs(size / 2 - i) + 1;
+
+            if (i === 0 || i === size - 1) {
+                stars = 1;
+            }
+
+            row.textContent = `${" ".repeat(spaces)}${"*".repeat(stars)}`;
             diamondWrapper.appendChild(row);
         }
+
     }
 
     if (!isEven) {
