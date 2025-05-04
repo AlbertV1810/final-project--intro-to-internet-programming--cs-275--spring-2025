@@ -18,18 +18,21 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     const container = document.getElementById(`diamond-container`);
     container.innerHTML = ``;
+    const isEven = size % 2 === 0;
 
     const diamondWrapper = document.createElement(`div`);
     diamondWrapper.classList.add(`diamond-wrapper`);
 
-    for(let i = 0; i < size; i++) {
-        const row = document.createElement(`div`);
-        row.classList.add(`diamond-row`);
+    if (!isEven) {
+        for(let i = 0; i < size; i++) {
+            const row = document.createElement(`div`);
+            row.classList.add(`diamond-row`);
 
-        let spaces = Math.abs(Math.floor(size / 2) - i);
-        let stars = size - spaces * 2;
-        row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
-        diamondWrapper.appendChild(row);
+            let spaces = Math.abs(Math.floor(size / 2) - i);
+            let stars = size - spaces * 2;
+            row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
+            diamondWrapper.appendChild(row);
+        }
     }
 
     container.appendChild(diamondWrapper);
