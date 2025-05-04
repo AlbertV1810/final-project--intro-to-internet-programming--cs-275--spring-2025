@@ -32,8 +32,13 @@ document.addEventListener(`DOMContentLoaded`, () => {
         let spaces = Math.abs(Math.floor(size / 2) - i);
         let stars = size - spaces * 2;
 
-        if (isEven && (i === 0 || i === size - 1)) {
-            stars += 1;
+        if (isEven) {
+            if (i === 0 || i === size - 1) {
+                stars += 1;
+            }
+            if (size % 2 === 0 && i === Math.floor(size / 2)) {
+                stars += 1;
+            }
         }
 
         row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
