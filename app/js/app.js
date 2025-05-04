@@ -28,7 +28,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
             const row = document.createElement(`div`);
             row.classList.add(`diamond-row`);
 
-            let spaces = Math.abs(size / 2 - i) - 1;
+            let spaces = Math.abs(size / 2 - i);
             let stars = 2 * Math.abs(size / 2 - i) + 1;
 
             if (i === 0 || i === size - 1) {
