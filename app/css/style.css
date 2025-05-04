@@ -23,6 +23,6 @@ body {
 
 .diamond-row {
  font-size: 20px;
- font-family: monospace;
+ font-family: 'Courier New', Courier, monospace;
  white-space: pre;
 }
