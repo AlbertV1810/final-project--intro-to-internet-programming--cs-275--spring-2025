@@ -61,8 +61,12 @@ gulp.task("transpileJSForProd", () => {
 
 gulp.task("serve", () => {
     browserSync.init({
-        baseDir: `src/app` ,
-        index: `index.html`
+        server: {
+            baseDir: `src/app` ,
+            index: `index.html`
+        },
+        port: 3000,
+        open: true,
     });
 
     gulp.watch("src/*.html", gulp.series("validateHTML")).on("change", browserSync.reload);
