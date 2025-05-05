@@ -22,7 +22,6 @@ body {
   flex-direction: column;
   border: 2px solid black;
   width: fit-content;
-  padding: 20px;
 }
 
 .diamond-row {
