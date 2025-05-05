@@ -55,14 +55,14 @@ gulp.task("transpileJSForDev", () => {
 gulp.task("transpileJSForProd", () => {
     return gulp.src("src/*.js")
         .pipe(babel({ presets: ["@babel/preset-env"] }))
-        .pipe(terser()) // Minify for prod
+        .pipe(terser())
         .pipe(gulp.dest("prod"));
 });
 
 gulp.task("serve", () => {
     browserSync.init({
         server: {
-            baseDir: `src/app` ,
+            baseDir: `src/app/html` ,
             index: `index.html`
         },
         port: 3000,
