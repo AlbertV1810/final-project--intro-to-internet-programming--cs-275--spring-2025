@@ -25,13 +25,13 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     if (isEven) {
         let topRow = document.createElement(`div`);
-        topRow.classList.add(`diamond-row`);
+        topRow.classList.add(`diamond-row`, `even-diamond`);
         topRow.textContent = `${` `.repeat(size - 1)}*`;
         diamondWrapper.appendChild(topRow);
 
         for (let spaceChars = 1; spaceChars < size; spaceChars += 2) {
             let row = document.createElement(`div`);
-            row.classList.add(`diamond-row`);
+            row.classList.add(`diamond-row`, `even-diamond`);
 
             let spaces = size - 1 - spaceChars;
             let stars = spaceChars + 1;
@@ -42,7 +42,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
         for (let spaceChars = size - 2; spaceChars > 0; spaceChars -= 2) {
             let row = document.createElement(`div`);
-            row.classList.add(`diamond-row`);
+            row.classList.add(`diamond-row`, `even-diamond`);
 
             let spaces = size - spaceChars;
             let stars = spaceChars;
@@ -52,21 +52,15 @@ document.addEventListener(`DOMContentLoaded`, () => {
         }
 
         let bottomRow = document.createElement(`div`);
-        bottomRow.classList.add(`diamond-row`);
+        bottomRow.classList.add(`diamond-row`, `even-diamond`);
         bottomRow.textContent = `${` `.repeat(size - 1)}*`;
         diamondWrapper.appendChild(bottomRow);
     }
 
-    if (isEven) {
-        row.classList.add(`even-diamond`);
-      } else {
-        row.classList.add(`odd-diamond`);
-      }
-
     if (!isEven) {
         for(let i = 0; i < size; i++) {
             const row = document.createElement(`div`);
-            row.classList.add(`diamond-row`);
+            row.classList.add(`diamond-row`, `odd-diamond`);
 
             let spaces = Math.abs(Math.floor(size / 2) - i);
             let stars = size - spaces * 2;
