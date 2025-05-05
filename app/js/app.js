@@ -1,6 +1,3 @@
-const size = parseInt(window.prompt("Enter the size of the diamond:"), 10);
-createDiamond(size);
-
 const createDiamond = (size) => {
     console.log(`createDiamond is running with size: ${size}`); //delete after
 
@@ -61,6 +58,10 @@ const createDiamond = (size) => {
     console.log(`Wrapper apended well`); //delete after
     startAnimation(diamondWrapper);
 };
+
+const size = parseInt(window.prompt("Enter the size of the diamond:"), 10);
+createDiamond(size);
+
 
 const startAnimation = (diamond) => {
     let direction = 1;
