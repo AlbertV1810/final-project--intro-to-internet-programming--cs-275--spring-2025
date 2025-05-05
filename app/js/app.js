@@ -73,3 +73,22 @@ document.addEventListener(`DOMContentLoaded`, () => {
     container.appendChild(diamondWrapper);
     console.log(`Wrapper apended well`); //delete after
   }
+
+  const diamond = document.querySelector(`.diamond-wrapper`);
+  let direction = 1;
+  let position = 0;
+  const speed = 2;
+
+  const moveDiamond = () => {
+    const maxWidth = window.innerWidth - diamond.offsetWidth;
+
+    position += speed * direction;
+
+    if (position >= maxWidth || position <= 0) {
+        direction *= -1;
+    }
+
+    diamond.style.transform = `translateX(${position}px)`;
+  };
+
+  setInterval(moveDiamond, 10);
