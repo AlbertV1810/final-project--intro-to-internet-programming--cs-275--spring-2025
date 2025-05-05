@@ -26,8 +26,15 @@ body {
   width: fit-content;
 }
 
-.diamond-row {
+.odd-diamond {
   line-height: 0.6;
+}
+
+.even-diamond {
+  line-height: 1;
+}
+
+.diamond-row {
   font-size: 20px;
   font-family: 'Space Mono', monospace;
   white-space: pre;
