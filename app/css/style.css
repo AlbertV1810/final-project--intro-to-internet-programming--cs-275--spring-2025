@@ -27,8 +27,9 @@ body {
 }
 
 .diamond-row {
- font-size: 20px;
- font-family: 'Space Mono', monospace;
- white-space: pre;
- letter-spacing: 0px;
+  line-height: 1;
+  font-size: 20px;
+  font-family: 'Space Mono', monospace;
+  white-space: pre;
+  letter-spacing: 0px;
 }
