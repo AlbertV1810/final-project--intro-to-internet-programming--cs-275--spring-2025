@@ -84,7 +84,7 @@ const startAnimation = (diamond) => {
         const maxWidth = window.innerWidth - diamond.offsetWidth;
         position += speed * direction;
 
-        if (position >= maxWidth || position <= -) {
+        if (position >= maxWidth || position <= 0) {
             direction *= -1;
         }
 
