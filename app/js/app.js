@@ -1,3 +1,22 @@
+const startAnimation = (diamond) => {
+    let direction = 1;
+    let position = 0;
+    const speed = 5;
+
+    const moveDiamond = () => {
+        const maxWidth = window.innerWidth - diamond.offsetWidth;
+        position += speed * direction;
+
+        if (position >= maxWidth || position <= 0) {
+            direction *= -1;
+        }
+
+        diamond.style.left = `${position}px`;
+    };
+
+    setInterval(moveDiamond, 10);
+};
+
 const createDiamond = (size) => {
     console.log(`createDiamond is running with size: ${size}`); //delete after
 
@@ -61,23 +80,3 @@ const createDiamond = (size) => {
 
 const size = parseInt(window.prompt("Enter the size of the diamond:"), 10);
 createDiamond(size);
-
-
-const startAnimation = (diamond) => {
-    let direction = 1;
-    let position = 0;
-    const speed = 5;
-
-    const moveDiamond = () => {
-        const maxWidth = window.innerWidth - diamond.offsetWidth;
-        position += speed * direction;
-
-        if (position >= maxWidth || position <= 0) {
-            direction *= -1;
-        }
-
-        diamond.style.left = `${position}px`;
-    };
-
-    setInterval(moveDiamond, 10);
-};
