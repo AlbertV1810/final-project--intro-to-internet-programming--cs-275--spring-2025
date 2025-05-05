@@ -72,24 +72,24 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     container.appendChild(diamondWrapper);
     console.log(`Wrapper apended well`); //delete after
-  }
-
-  const diamond = document.querySelector(`.diamond-wrapper`);
-  let direction = 1;
-  let position = 0;
-  const speed = 2;
-  console.log(document.querySelector(".diamond-wrapper"));
-
-  const moveDiamond = () => {
-    const maxWidth = window.innerWidth - diamond.offsetWidth;
-
-    position += speed * direction;
-
-    if (position >= maxWidth || position <= 0) {
-        direction *= -1;
-    }
-
-    diamond.style.left = `${position}px`;
+    startAnimation(diamondWrapper);
   };
 
-  setInterval(moveDiamond, 10);
+const startAnimation = (diamond) => {
+    let direction = 1;
+    let position = 0;
+    const speed = 2;
+
+    const moveDiamond = () => {
+        const maxWidth = window.innerWidth - diamond.offsetWidth;
+        position += speed * direction;
+
+        if (position >= maxWidth || position <= -) {
+            direction *= -1;
+        }
+
+        diamond.style.left = `${position}px`;
+    };
+
+    setInterval(moveDiamond, 10);
+};
