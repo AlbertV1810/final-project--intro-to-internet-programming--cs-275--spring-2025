@@ -18,6 +18,8 @@ body {
 
 .diamond-wrapper {
   position: relative;
+  top: 0;
+  left: 0;
   display: block;
   flex-direction: column;
   border: 2px solid black;
