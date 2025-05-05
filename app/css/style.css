@@ -20,7 +20,6 @@ body {
   position: relative;
   display: block;
   flex-direction: column;
-  align-items: center;
 }
 
 .diamond-row {
