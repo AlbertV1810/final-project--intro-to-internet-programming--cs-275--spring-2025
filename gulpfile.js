@@ -1,78 +1,77 @@
-const gulp = require("gulp");
-const htmlValidator = require("gulp-html");
-const stylelint = require("gulp-stylelint");
-const eslint = require("gulp-eslint");
-const terser = require("gulp-terser");
-const cleanCSS = require("gulp-clean-css");
-const htmlmin = require("gulp-htmlmin");
-const babel = require("gulp-babel");
-const browserSync = require("browser-sync").create();
+const gulp = require(`gulp`);
+const htmlValidator = require(`gulp-html`);
+const stylelint = require(`gulp-stylelint`);
+const eslint = require(`gulp-eslint`);
+const terser = require(`gulp-terser`);
+const cleanCSS = require(`gulp-clean-css`);
+const htmlmin = require(`gulp-htmlmin`);
+const babel = require(`gulp-babel`);
+const browserSync = require(`browser-sync`).create();
 
-gulp.task("validateHTML", () => {
-    return gulp.src("src/*.html")
+gulp.task(`validateHTML`, () => {
+    return gulp.src(`app/html/*.html`)
         .pipe(htmlValidator())
-        .pipe(gulp.dest("src/validated"));
+        .pipe(gulp.dest(`app/validated`));
 });
 
-gulp.task("validateCSS", () => {
-    return gulp.src("src/*.css")
+gulp.task(`validateCSS`, () => {
+    return gulp.src(`app/css/*.css`)
         .pipe(stylelint({
-            reporters: [{ formatter: "string", console: true }]
+            reporters: [{ formatter: `string`, console: true }]
         }));
 });
 
-gulp.task("validateJS", () => {
-    return gulp.src("src/*.js")
+gulp.task(`validateJS`, () => {
+    return gulp.src(`app/js/*.js`)
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
 
-gulp.task("compressHTML", () => {
-    return gulp.src("src/*.html")
+gulp.task(`compressHTML`, () => {
+    return gulp.src(`app/html/*.html`)
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest("prod"));
+        .pipe(gulp.dest(`prod`));
 });
 
-gulp.task("compressCSS", () => {
-    return gulp.src("src/*.css")
+gulp.task(`compressCSS`, () => {
+    return gulp.src(`app/css/*.css`)
         .pipe(cleanCSS())
-        .pipe(gulp.dest("prod"));
+        .pipe(gulp.dest(`prod`));
 });
 
-gulp.task("compressJS", () => {
-    return gulp.src("src/*.js")
+gulp.task(`compressJS`, () => {
+    return gulp.src(`app/js/*.js`)
+        .pipe(gulp.dest(`prod`));
+});
+
+gulp.task(`transpileJSForDev`, () => {
+    return gulp.src(`app/js/*.js`)
+        .pipe(babel({ presets: [`@babel/preset-env`] }))
+        .pipe(gulp.dest(`app/transpiled`));
+});
+
+gulp.task(`transpileJSForProd`, () => {
+    return gulp.src(`app/js/*.js`)
+        .pipe(babel({ presets: [`@babel/preset-env`] }))
         .pipe(terser())
-        .pipe(gulp.dest("prod"));
+        .pipe(gulp.dest(`prod`));
 });
 
-gulp.task("transpileJSForDev", () => {
-    return gulp.src("src/*.js")
-        .pipe(babel({ presets: ["@babel/preset-env"] }))
-        .pipe(gulp.dest("src/transpiled"));
-});
-
-gulp.task("transpileJSForProd", () => {
-    return gulp.src("src/*.js")
-        .pipe(babel({ presets: ["@babel/preset-env"] }))
-        .pipe(terser())
-        .pipe(gulp.dest("prod"));
-});
-
-gulp.task("serve", () => {
+gulp.task(`serve`, () => {
     browserSync.init({
         server: {
-            baseDir: `src/app/html` ,
+            baseDir: `app/html`,
             index: `index.html`
         },
         port: 3000,
         open: true,
     });
 
-    gulp.watch("src/*.html", gulp.series("validateHTML")).on("change", browserSync.reload);
-    gulp.watch("src/*.css", gulp.series("validateCSS")).on("change", browserSync.reload);
-    gulp.watch("src/*.js", gulp.series("validateJS", "transpileJSForDev")).on("change", browserSync.reload);
+    gulp.watch(`app/html/*.html`, gulp.series(`validateHTML`)).on(`change`, browserSync.reload);
+    gulp.watch(`app/css/*.css`, gulp.series(`validateCSS`)).on(`change`, browserSync.reload);
+    gulp.watch(`app/js/*.js`, gulp.series(`validateJS`, `transpileJSForDev`)).on(`change`, browserSync.reload);
 });
 
-gulp.task("default", gulp.series("validateHTML", "validateCSS", "validateJS", "transpileJSForDev", "serve"));
-gulp.task("build", gulp.series("compressHTML", "compressCSS", "compressJS", "transpileJSForProd"));
+gulp.task(`default`, gulp.series(`validateHTML`, `validateCSS`, `validateJS`, `transpileJSForDev`, `serve`));
+gulp.task(`build`, gulp.series(`compressHTML`, `compressCSS`, `compressJS`, `transpileJSForProd`));
