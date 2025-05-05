@@ -77,7 +77,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
 const startAnimation = (diamond) => {
     let direction = 1;
     let position = 0;
-    const speed = 2;
+    const speed = 5;
 
     const moveDiamond = () => {
         const maxWidth = window.innerWidth - diamond.offsetWidth;
