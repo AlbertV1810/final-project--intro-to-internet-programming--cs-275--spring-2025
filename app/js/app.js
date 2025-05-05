@@ -78,6 +78,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   let direction = 1;
   let position = 0;
   const speed = 2;
+  console.log(document.querySelector(".diamond-wrapper"));
 
   const moveDiamond = () => {
     const maxWidth = window.innerWidth - diamond.offsetWidth;
