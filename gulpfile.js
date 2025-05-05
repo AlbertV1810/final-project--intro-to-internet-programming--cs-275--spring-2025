@@ -61,8 +61,8 @@ gulp.task(`transpileJSForProd`, () => {
 gulp.task(`serve`, () => {
     browserSync.init({
         server: {
-            baseDir: `app/html`,
-            index: `index.html`
+            baseDir: `app`,
+            index: `html/index.html`
         },
         port: 3000,
         open: true,
