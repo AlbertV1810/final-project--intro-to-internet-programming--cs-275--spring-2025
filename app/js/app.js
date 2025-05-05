@@ -13,6 +13,12 @@ document.addEventListener(`DOMContentLoaded`, () => {
     if (size) createDiamond(size);
   });
 
+  if (isEven) {
+    row.classList.add(`even-diamond`);
+  } else {
+    row.classList.add(`odd-diamond`);
+  }
+
   const createDiamond = (size) => {
     console.log(`createDiamond is running with size: ${size}`); //delete after
 
