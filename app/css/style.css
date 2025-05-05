@@ -17,9 +17,7 @@ body {
 }
 
 .diamond-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   display: block;
   flex-direction: column;
   border: 2px solid black;
