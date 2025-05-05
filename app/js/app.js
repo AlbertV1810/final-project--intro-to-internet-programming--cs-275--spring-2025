@@ -1,17 +1,5 @@
-document.addEventListener(`DOMContentLoaded`, () => {
-    let size;
-
-    while (true) {
-      const input = prompt(`Enter size of the diamond:`);
-
-      if (input === null) break;
-      size = parseInt(input, 10);
-
-      if (!isNaN(size) && size > 0) break;
-    }
-
-    if (size) createDiamond(size);
-});
+const size = parseInt(window.prompt("Enter the size of the diamond:"), 10);
+createDiamond(size);
 
 const createDiamond = (size) => {
     console.log(`createDiamond is running with size: ${size}`); //delete after
