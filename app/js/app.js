@@ -24,25 +24,39 @@ document.addEventListener(`DOMContentLoaded`, () => {
     diamondWrapper.classList.add(`diamond-wrapper`);
 
     if (isEven) {
-        for(let i = 0; i < size; i++) {
-            const row = document.createElement(`div`);
+        let topRow = document.createElement(`div`);
+        topRow.classList.add(`diamond-row`);
+        topRow.textContent = `${` `.repeat(size - 1)}*`;
+        diamondWrapper.appendChild(topRow);
+
+        for (let spaceChars = 1; spaceChars < size; spaceChars += 2) {
+            let row = document.createElement(`div`);
             row.classList.add(`diamond-row`);
 
-            let spaces = Math.abs(Math.floor(size / 2) - i);
-            let stars = size - spaces * 2;
+            let spaces = size - 1 - spaceChars;
+            let stars = spaceChars + 1;
 
-            if (i === 0 || i === size - 1) {
-                stars = 1;
-            }
-            if (spaces === 0) {
-                stars += 1;
-            }
-
-            row.textContent = `${` `.repeat(spaces + 1)}${`*`.repeat(stars)}`;
+            row.textContent = `${` `.repeat(spaces)}${`* `.repeat(stars).trim()}`;
             diamondWrapper.appendChild(row);
         }
 
+        for (let spaceChars = size - 2; spaceChars > 0; spaceChars -= 2) {
+            let row = document.createElement(`div`);
+            row.classList.add(`diamond-row`);
+
+            let spaces = size - spaceChars;
+            let stars = spaceChars;
+
+            row.textContent = `${` `.repeat(spaces)}${`* `.repeat(stars).trim()}`;
+            diamondWrapper.appendChild(row);
+        }
+
+        let bottomRow = document.createElement(`div`);
+        bottomRow.classList.add(`diamond-row`);
+        bottomRow.textContent = `${` `.repeat(size - 1)}*`;
+        diamondWrapper.appendChild(bottomRow);
     }
+
 
     if (!isEven) {
         for(let i = 0; i < size; i++) {
