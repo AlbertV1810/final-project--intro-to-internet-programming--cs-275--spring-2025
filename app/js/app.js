@@ -78,5 +78,5 @@ const createDiamond = (size) => {
     startAnimation(diamondWrapper);
 };
 
-const size = parseInt(window.prompt("Enter the size of the diamond:"), 10);
+const size = parseInt(window.prompt(`Enter the size of the diamond:`), 10);
 createDiamond(size);
