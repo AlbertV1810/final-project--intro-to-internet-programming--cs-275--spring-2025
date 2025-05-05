@@ -11,9 +11,9 @@ document.addEventListener(`DOMContentLoaded`, () => {
     }
 
     if (size) createDiamond(size);
-  });
+});
 
-  const createDiamond = (size) => {
+const createDiamond = (size) => {
     console.log(`createDiamond is running with size: ${size}`); //delete after
 
     const container = document.getElementById(`diamond-container`);
@@ -72,7 +72,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     container.appendChild(diamondWrapper);
     console.log(`Wrapper apended well`); //delete after
     startAnimation(diamondWrapper);
-  };
+};
 
 const startAnimation = (diamond) => {
     let direction = 1;
