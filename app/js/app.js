@@ -88,7 +88,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         direction *= -1;
     }
 
-    diamond.style.transform = `translateX(${position}px)`;
+    diamond.style.left = `${position}px`;
   };
 
   setInterval(moveDiamond, 10);
