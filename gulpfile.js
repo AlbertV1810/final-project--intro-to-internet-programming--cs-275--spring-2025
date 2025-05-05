@@ -31,18 +31,18 @@ gulp.task(`validateJS`, () => {
 gulp.task(`compressHTML`, () => {
     return gulp.src(`app/html/*.html`)
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest(`prod`));
+        .pipe(gulp.dest(`prod/html`));
 });
 
 gulp.task(`compressCSS`, () => {
     return gulp.src(`app/css/*.css`)
         .pipe(cleanCSS())
-        .pipe(gulp.dest(`prod`));
+        .pipe(gulp.dest(`prod/css`));
 });
 
 gulp.task(`compressJS`, () => {
     return gulp.src(`app/js/*.js`)
-        .pipe(gulp.dest(`prod`));
+        .pipe(gulp.dest(`prod/js`));
 });
 
 gulp.task(`transpileJSForDev`, () => {
