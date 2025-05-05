@@ -30,7 +30,9 @@ body {
   line-height: 0.6;
 }
 
-
+.even-diamond {
+  line-height: 1.1;
+}
 
 .diamond-row {
   font-size: 20px;
